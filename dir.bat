@@ -1,0 +1,1 @@
+IF exist 'C:\Star Wars Sounds\' ( rmdir 'C:\Star Wars Sounds' ) ELSE ( echo "creating directory")
