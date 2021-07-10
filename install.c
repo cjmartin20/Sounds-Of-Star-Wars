@@ -4,7 +4,13 @@
 
 int main() {
     int status; //holds return value from commands to check if they were successful
-
+    status = system("dir.bat");
+    if( status == 1 ) { 
+        MessageBox(0, "Option 1", "Status", 0);
+    }
+    else {
+        MessageBox(0, "Option 2", "Status", 0);
+    }
     status = system("mkdir \"C:\\Star Wars Sounds\"");
     if( status == 0 ) {
         MessageBox(0, "Created direcotry C:\\Star Wars Sounds\"", "Status", 0);
@@ -15,7 +21,7 @@ int main() {
             "Status", 0);
         return 0;
     }
-    system("copy \".\\Sounds\\*\" \"C:\\Star Wars Sounds\"");
+    system("copy \\Y \".\\Sounds\\*\" \"C:\\Star Wars Sounds\"");
     if( status == 0 ) {
         MessageBox(0, "Files Copied!", "Status", 0);
     }
