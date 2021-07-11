@@ -15,8 +15,7 @@ int main() {
             "Status", 0);
         return 0;
     }
-    */
-    system("mkdir C:\\Star Wars Sounds");
+    system("mkdir \"C:\\Star Wars Sounds\"");
     if( status == 0 ) {
         MessageBox(0, "Directory Created", "Status", 0);
     }
@@ -26,7 +25,8 @@ int main() {
             "Status", 0);
         return 0;
     }
-    system("copy \\Y \".\\Sounds\\*\" \"C:\\Star Wars Sounds\"");
+    */
+    system("xcopy /E /C /Y \"Star Wars Sounds\" \"C:\\Star Wars Sounds\\\"");
     if( status == 0 ) {
         MessageBox(0, "Files Copied!", "Status", 0);
     }
@@ -36,6 +36,7 @@ int main() {
             "Status", 0);
         return 0;
     }
+    /*
     status = system("reg import .\\StarWarsSystemSounds.reg");
     if( status == 0 ) {
         MessageBox(0, "Installation Successful!", "Status", 0);
@@ -45,6 +46,7 @@ int main() {
             "There was a problem importing the the registry file", 
             "Status", 0);
     }
+    */
 
     return 0;
 }
