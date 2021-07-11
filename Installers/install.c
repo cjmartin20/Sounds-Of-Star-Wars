@@ -1,51 +1,24 @@
 #include <Windows.h>
-
+#include <stdio.h>
 
 int main() {
     int status; //holds return value from commands to check if they were successful
+    status = MessageBoxA( 
+        NULL,
+        "Press \"OK\" to install Star Wars Sounds! Check out ReadMe.txt for details, unistalling, or troubleshooting.",
+        "Star Wars Sounds",
+        0x00000001L ); //0x00000041L would be a Combintion of MB_ICONINFORMATION 0x00000040L and MB_OKCANCEL 0x00000001L flags
+    if( status == 1 ) { //IDOK, the OK button was selected
+        system(".\\Installers\\install.bat");
+        MessageBox(0, "The installation is finished!", "Star Wars Sounds", 0);
+    }
+    if( status == 2 ) { //IDCANCEL, the cancel button was selected 
+        return 0;
+    }
     /*
-    system("xcopy \\E \\C \".\\Star Wars Sounds\\\" \"C:\\\"");
-    if( status == 0 ) {
-        MessageBox(0, "Created direcotry C:\\Star Wars Sounds\"", "Status", 0);
-    }
-    else {
-        MessageBox(0,
-            "Could not create direcotry C:\\Star Wars Sounds\"",
-            "Status", 0);
-        return 0;
-    }
-    system("mkdir \"C:\\Star Wars Sounds\"");
-    if( status == 0 ) {
-        MessageBox(0, "Directory Created", "Status", 0);
-    }
-    else {
-        MessageBox(0,
-            "Could not create directory.", 
-            "Status", 0);
-        return 0;
-    }
-    */
     system("xcopy /E /C /Y \"Star Wars Sounds\" \"C:\\Star Wars Sounds\\\"");
-    if( status == 0 ) {
-        MessageBox(0, "Files Copied!", "Status", 0);
-    }
-    else {
-        MessageBox(0,
-            "There was a problem copying the files.", 
-            "Status", 0);
-        return 0;
-    }
-    /*
-    status = system("reg import .\\StarWarsSystemSounds.reg");
-    if( status == 0 ) {
-        MessageBox(0, "Installation Successful!", "Status", 0);
-    }
-    else {
-        MessageBox(0,
-            "There was a problem importing the the registry file", 
-            "Status", 0);
-    }
+    system("reg import .\\StarWarsSystemSounds.reg");
+    system("mkdir \"C:\\Star Wars Sounds\"");
     */
-
     return 0;
 }
