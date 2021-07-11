@@ -4,7 +4,7 @@
 int main() {
     int status; //holds return value from commands to check if they were successful
     status = MessageBoxA( 
-        NULL,
+        0,
         "Press \"OK\" to install Star Wars Sounds! Check out ReadMe.txt for details, unistalling, or troubleshooting.",
         "Star Wars Sounds",
         0x00000001L ); //0x00000041L would be a Combintion of MB_ICONINFORMATION 0x00000040L and MB_OKCANCEL 0x00000001L flags
